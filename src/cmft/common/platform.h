@@ -36,8 +36,13 @@
 //------------------------------------------------------------
 
 #if defined(_WIN32) || defined(_WIN64)
+#if defined(__MINGW32__)
+#   undef CMFT_COMPILER_GCC
+#   define CMFT_COMPILER_GCC 1
+#else
 #   undef CMFT_COMPILER_MSVC
 #   define CMFT_COMPILER_MSVC 1
+#endif
 #elif defined(__GNUC__)
 #   undef CMFT_COMPILER_GCC
 #   define CMFT_COMPILER_GCC 1
